@@ -18,3 +18,4 @@ See this repository's [release tags](https://github.com/OneSignal/OneSignal-Andr
 #### Support
 Please visit this repository's [Github issue tracker](https://github.com/OneSignal/OneSignal-Android-SDK/issues) for feature requests and bug reports related specificly to the SDK.
 For account issues and support please contact OneSignal support from the [OneSignal.com](https://onesignal.com) dashboard.
+
