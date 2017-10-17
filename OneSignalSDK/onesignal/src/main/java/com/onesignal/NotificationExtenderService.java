@@ -27,13 +27,13 @@
 
 package com.onesignal;
 
-import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.JobIntentService;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -66,7 +66,7 @@ import java.util.List;
  * - Override specific notification settings depending on client-side app logic (e.g. custom accent color,
  * vibration pattern, any other {@link NotificationCompat} options)
  */
-public abstract class NotificationExtenderService extends IntentService {
+public abstract class NotificationExtenderService extends JobIntentService {
 
    public static class OverrideSettings {
       public NotificationCompat.Extender extender;
@@ -87,7 +87,7 @@ public abstract class NotificationExtenderService extends IntentService {
    }
 
    public NotificationExtenderService() {
-      super("NotificationExtenderService");
+      super();
       setIntentRedelivery(true);
    }
 
@@ -119,7 +119,7 @@ public abstract class NotificationExtenderService extends IntentService {
    protected abstract boolean onNotificationProcessing(OSNotificationReceivedResult notification);
 
    @Override
-   protected final void onHandleIntent(Intent intent) {
+   protected final void onHandleWork(Intent intent) {
       if (intent == null)
          return;
       
